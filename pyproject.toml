@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fileagent"
+version = "0.1.0"
+description = "A local workspace file agent for macOS, powered by DeepSeek."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "AGPL-3.0-only"
+license-files = ["LICENSE"]
+dependencies = [
+    "openai>=2,<3",
+    "streamlit>=1.46,<2",
+    "PyMuPDF>=1.26,<2",
+    "python-docx>=1.2,<2",
+    "pandas>=2.2.3,<4",
+    "python-dotenv>=1,<2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[project.urls]
+"DeepSeek Tool Calls" = "https://api-docs.deepseek.com/guides/tool_calls/"
+
+[tool.setuptools.packages.find]
+include = ["fileagent*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
